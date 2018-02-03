@@ -7,6 +7,8 @@ public class Players : MonoBehaviour
     private float horizontalMove;
     private float verticalMove;
 
+    public float Speed = 5f;
+
     public enum WhichCharacter
     {
         Erwin,
