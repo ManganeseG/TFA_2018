@@ -7,11 +7,9 @@ public class Characters : MonoBehaviour
     private float horizontalMove;
     private float verticalMove;
     private float velocity;
-    private float previousVelocity;
     private Quaternion previousRotation = Quaternion.identity;
     private Rigidbody rigidBody;
     public bool canJump = false;
-    private int countJump = 0;
 
 
     public float CurrentMoveSpeed;
@@ -50,7 +48,6 @@ public class Characters : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Debug.Log("Shift");
             partSystem.SetActive(true);
         }
     }
@@ -117,22 +114,11 @@ public class Characters : MonoBehaviour
             rigidBody.rotation, rotation, RotationSmoothness));
 
         previousRotation = rigidBody.rotation;
-
-
-        //Debug.Log("CanJump : " + canJump);
+        
         if (Input.GetButtonDown("Jump") && canJump)
         {
-            Debug.Log("Jump");
-
             rigidBody.velocity = new Vector3(0, JumpForce, 0);
-            Debug.Log(velocity);
-            countJump += 1;
         }
-
-        //Debug.Log(velocity);
-        //Debug.Log("previous :" + previousVelocity);
-
-        previousVelocity = velocity;
     }
     void OnTriggerEnter(Collider col)
     {
@@ -147,10 +133,5 @@ public class Characters : MonoBehaviour
         {
             canJump = false;
         }
-    }
-
-    private void modifyCharacter()
-    {
-
     }
 }

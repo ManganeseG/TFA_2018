@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private float horizontalMove;
+    private float verticalMove;
+    private float velocity;
+    private Quaternion previousRotation = Quaternion.identity;
+    private Rigidbody rigidBody;
+    private bool canJump = false;
+    private float currentMoveSpeed;
+    public float MoveSpeed = 1.0f;
+    [Range(1.0f, 6.0f)]
+    public float JumpForce = 10.0f;
+    public float SprintSpeed = 5f;
+    [Range(0f, 1f)]
+    public float RotationSmoothness = 0.5f;
+
     public static float Speed = 7.0f;
     public float RotateSpeed = 10.0f;
     public GameObject Bullet;
@@ -37,6 +51,7 @@ public class Player : MonoBehaviour
     public GameObject AlishaMesh;
     public GameObject TypeAMesh;
     public GameObject MallikaMesh;
+    public GameObject speedTrailParticle;
 
     public KeyCode Arjuna;
     public KeyCode Erwin;
@@ -69,8 +84,13 @@ public class Player : MonoBehaviour
         AlishaMesh.SetActive(true);
         TypeAMesh.SetActive(true);
         MallikaMesh.SetActive(true);
-    }
 
+        rigidBody = GetComponent<Rigidbody>();
+    }
+    private void FixedUpdate()
+    {
+        Move();
+    }
     void Update()
     {
 
@@ -81,17 +101,25 @@ public class Player : MonoBehaviour
         TypeAMesh.transform.position = transform.position;
         MallikaMesh.transform.position = transform.position;
 
+
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                Debug.Log("Shift");
+                speedTrailParticle.SetActive(true);
+            }
+        }
+
+
+
         #region Movements
-        float x = Input.GetAxis("Horizontal") * Time.deltaTime * RotateSpeed;
-        float z = Input.GetAxis("Vertical") * Time.deltaTime * Speed;
 
         float horizontalFire = Input.GetAxis("Horizontal2");
         float verticalFire = Input.GetAxis("Vertical2");
 
         float intensity = Mathf.Sqrt(horizontalFire * horizontalFire + verticalFire * verticalFire);
 
-        transform.Rotate(0.0f, x, 0.0f);
-        transform.Translate(0.0f, 0.0f, z);
+
         distanceCooldownTime -= Time.deltaTime;
 
         if (intensity > 0.5f)
@@ -186,4 +214,88 @@ public class Player : MonoBehaviour
         //     int _whichChar = NumberOfCharacters[i];
         // }
     }
+
+    private void Move()
+    {
+        currentMoveSpeed = MoveSpeed;
+        velocity = rigidBody.velocity.y;
+        float horizontalMove = Input.GetAxis("Horizontal");
+        float verticalMove = Input.GetAxis("Vertical");
+        float length = Mathf.Sqrt(horizontalMove * horizontalMove +
+            verticalMove * verticalMove);
+
+        length = Mathf.Max(length, 1f);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentMoveSpeed = SprintSpeed;
+        }
+
+
+
+        horizontalMove *= Time.deltaTime * currentMoveSpeed / length;
+        verticalMove *= Time.deltaTime * currentMoveSpeed / length;
+
+        Vector3 deltaPosition = new
+        Vector3(horizontalMove, 0f, verticalMove);
+
+        RaycastHit hitInfoH, hitInfoV;
+
+        bool collisionH = Physics.SphereCast(transform.position, 0.5f,
+                                Vector3.right * Mathf.Sign(deltaPosition.x), out hitInfoH,
+                                Mathf.Abs(deltaPosition.x) + 0.5f, 1 << 12, QueryTriggerInteraction.Collide);
+        bool collisionV = Physics.SphereCast(transform.position, 0.5f,
+                                Vector3.forward * Mathf.Sign(deltaPosition.z), out hitInfoV,
+                                Mathf.Abs(deltaPosition.z) + 0.5f, 1 << 12, QueryTriggerInteraction.Collide);
+
+        if (collisionH)
+        {
+            deltaPosition.x = Mathf.Sign(deltaPosition.x) * (hitInfoH.distance - 0.5f);
+        }
+        if (collisionV)
+        {
+            deltaPosition.z = Mathf.Sign(deltaPosition.z) * (hitInfoV.distance - 0.5f);
+        }
+
+        Vector3 position = rigidBody.position +
+            deltaPosition;
+
+        Quaternion rotation;
+        if (deltaPosition.magnitude > 0.01f)
+        {
+            rotation = Quaternion.LookRotation(
+                deltaPosition.normalized);
+        }
+        else
+        {
+            rotation = previousRotation;
+        }
+
+        rigidBody.MovePosition(position);
+        rigidBody.MoveRotation(Quaternion.Slerp(
+            rigidBody.rotation, rotation, RotationSmoothness));
+
+        previousRotation = rigidBody.rotation;
+
+        if (Input.GetButtonDown("Jump") && canJump)
+        {
+            rigidBody.velocity = new Vector3(0, JumpForce, 0);
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            canJump = true;
+        }
+    }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            canJump = false;
+        }
+    }
 }
+

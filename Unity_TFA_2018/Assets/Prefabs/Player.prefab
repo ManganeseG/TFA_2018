@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33287301800242282}
   - component: {fileID: 65224225901842538}
   - component: {fileID: 23334955308106332}
+  - component: {fileID: 65862060166612370}
   m_Layer: 9
   m_Name: Tanvir
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 33215110126185328}
   - component: {fileID: 135151387217412290}
   - component: {fileID: 23589721787488518}
+  - component: {fileID: 135539843187134880}
   m_Layer: 9
   m_Name: TypeA
   m_TagString: Untagged
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 33337048275154254}
   - component: {fileID: 65137649294687324}
   - component: {fileID: 23976465070572558}
+  - component: {fileID: 65607040643059842}
   m_Layer: 9
   m_Name: Alisha
   m_TagString: Untagged
@@ -76,6 +79,7 @@ GameObject:
   - component: {fileID: 33215638523704688}
   - component: {fileID: 65212791662310360}
   - component: {fileID: 23454047087445592}
+  - component: {fileID: 65839080852107052}
   m_Layer: 9
   m_Name: Arjuna
   m_TagString: Untagged
@@ -127,6 +131,7 @@ GameObject:
   - component: {fileID: 33851478877381720}
   - component: {fileID: 65181074725569518}
   - component: {fileID: 23796498893033166}
+  - component: {fileID: 65324825092860490}
   m_Layer: 9
   m_Name: Erwin
   m_TagString: Untagged
@@ -145,6 +150,7 @@ GameObject:
   - component: {fileID: 33683909052803476}
   - component: {fileID: 135153514850427338}
   - component: {fileID: 23046226952647562}
+  - component: {fileID: 135915667187194596}
   m_Layer: 9
   m_Name: Mallika
   m_TagString: Untagged
@@ -606,6 +612,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65324825092860490
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738932975208632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65607040643059842
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308052996584202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65839080852107052
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494576288048144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65862060166612370
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1189453335532748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114652368444337434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -617,6 +671,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b82978a3ebf2294f96159ae21c3c36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveSpeed: 1
+  JumpForce: 10
+  SprintSpeed: 5
+  RotationSmoothness: 0.5
   RotateSpeed: 10
   Bullet: {fileID: 1919457710613808, guid: 600aff955d95f64408cb480c67a6bfdc, type: 2}
   FireRate: 10
@@ -629,6 +687,8 @@ MonoBehaviour:
   AlishaMesh: {fileID: 1308052996584202}
   TypeAMesh: {fileID: 1207429499325744}
   MallikaMesh: {fileID: 1809326626366820}
+  speedTrailParticle: {fileID: 1943015440198558, guid: 37c81961c8628724a8cbbef0a204e67b,
+    type: 2}
   Arjuna: 101
   Erwin: 114
   Tanvir: 116
@@ -657,6 +717,30 @@ SphereCollider:
   m_GameObject: {fileID: 1809326626366820}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135539843187134880
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1207429499325744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135915667187194596
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809326626366820}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
