@@ -124,6 +124,11 @@ public class RatsEnemy : MonoBehaviour
 			col.gameObject.layer == LayerMask.NameToLayer("Player") ||
             col.gameObject.layer == LayerMask.NameToLayer("BlockingWalls"))
 			return;
+		
+		if (other.gameObject.layer == LayerMask.NameToLayer("PlayerWeapon"))
+		{
+			Health --;
+		}
 
         Health--;
 		if (Health<=0f && currentState!=State.Dying)

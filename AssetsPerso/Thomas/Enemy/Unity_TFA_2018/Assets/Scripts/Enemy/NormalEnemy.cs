@@ -145,7 +145,12 @@ public class NormalEnemy : MonoBehaviour
             col.gameObject.layer == LayerMask.NameToLayer("BlockingWalls"))
 			return;
 
-        Health--;
+		if (other.gameObject.layer == LayerMask.NameToLayer("PlayerWeapon"))
+		{
+			Health --;
+		}
+
+		Health--;
 		if (Health<=0f && currentState!=State.Dying)
 		{
 			currentState = State.Dying;

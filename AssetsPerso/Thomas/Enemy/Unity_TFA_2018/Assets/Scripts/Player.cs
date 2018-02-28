@@ -9,8 +9,17 @@ public class Player : MonoBehaviour
     public GameObject Bullet;
     public float FireRate = 10.0f;
 
-    private float cooldownTime = 0.0f;
+    private float distanceCooldownTime = 0.0f;
     
+	public GameObject MeleeWeaponRef;
+	public float AttackRate = 10.0f;
+
+	private Transform meleeWeaponSpawn;
+	private Vector3 offset = new Vector3(1.5f, 0.0f, 0.0f);
+
+	private float meleeCoolDownTime = 0.0f;
+	private Quaternion rotationMeleeWeapon;
+	
     private static Player current;
 	public static Player Current
 	{
@@ -19,6 +28,7 @@ public class Player : MonoBehaviour
     void Awake()
 	{
 		current = this;
+		meleeWeaponSpawn = transform.Find("MeleeSpawner");
 	}
 
     void Update()
@@ -34,16 +44,24 @@ public class Player : MonoBehaviour
 
         transform.Rotate(0.0f,x,0.0f);
         transform.Translate(0.0f,0.0f,z);
-        cooldownTime -= Time.deltaTime;
+	    distanceCooldownTime -= Time.deltaTime;
 
         if(intensity >0.5f)
         {
             Quaternion rotationFire = Quaternion.LookRotation (new Vector3 (horizontalFire, 0.0f, verticalFire));
-            if (cooldownTime <= 0.0f)
+            if (distanceCooldownTime <= 0.0f)
             {
                 Instantiate(Bullet, transform.localPosition, rotationFire);
-                cooldownTime = 1.0f / FireRate;
+	            distanceCooldownTime = 1.0f / FireRate;
             }
         }
+	    
+	    rotationMeleeWeapon = Quaternion.LookRotation(new Vector3(0.0f, 90.0f, 0.0f));
+	    meleeCoolDownTime -= Time.deltaTime;
+	    if (Input.GetKeyDown(KeyCode.A) && meleeCoolDownTime <= 0.0f)
+	    {
+		    Instantiate(MeleeWeaponRef, meleeWeaponSpawn.position + offset, rotationMeleeWeapon);
+		    meleeCoolDownTime = 1.0f / AttackRate;
+	    }
     }
 }
