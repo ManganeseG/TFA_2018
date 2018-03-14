@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
     public KeyCode Mallika;
 
     public bool IsActive;
+    public bool areInPoison;
 
     public static Player Current
     {
@@ -113,11 +114,6 @@ public class Player : MonoBehaviour
         MallikaMesh.transform.position = transform.position;
 
         #region specialMovement
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Debug.Log("Shift");
-            
-        }
         if(Input.GetKey(KeyCode.LeftShift))
         {
             currentMoveSpeed = SprintSpeed;
@@ -226,7 +222,10 @@ public class Player : MonoBehaviour
         }
         #endregion
 
-
+        if(areInPoison)
+        {
+            Debug.Log("You are in the poison !!! ");
+        }
     }
 
     private void Move()
