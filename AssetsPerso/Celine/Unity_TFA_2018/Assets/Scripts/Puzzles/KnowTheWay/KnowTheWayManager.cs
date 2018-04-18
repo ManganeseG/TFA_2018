@@ -7,6 +7,7 @@ public class KnowTheWayManager : MonoBehaviour
 {
     public bool GenerateRandom;
     public GameObject[] piecesPrefabs;
+    public GameObject WinParticle;
 
     [System.Serializable]
     public class KnowTheWayPuzzle
@@ -17,7 +18,6 @@ public class KnowTheWayManager : MonoBehaviour
         public int width;
         public int height;
         public piece[,] pieces;
-
     }
     public KnowTheWayPuzzle knowTheWayPuzzle;
 
@@ -26,6 +26,8 @@ public class KnowTheWayManager : MonoBehaviour
 
     void Start()
     {
+        WinParticle.SetActive(false);
+
         if (GenerateRandom)
         {
             if (knowTheWayPuzzle.width == 0 || knowTheWayPuzzle.height == 0)
@@ -209,7 +211,7 @@ public class KnowTheWayManager : MonoBehaviour
 
     public void Win()
     {
-        //whatToDoIfItsWin
-        Debug.Log("It's a win!");
+        Debug.Log("aa");
+        WinParticle.SetActive(true);
     }
 }
