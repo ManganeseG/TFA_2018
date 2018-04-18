@@ -1,0 +1,237 @@
+fileFormatVersion: 2
+guid: 754fd44d0b73d3946826f2b026680a0b
+timeCreated: 1523539198
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body5
+    100002: ElbowNormalRock
+    100004: ElbowNormalRock 1
+    100006: ElbowNormalRock1
+    100008: ElbowNormalRock1 1
+    100010: ElbowSmallRock
+    100012: ElbowSmallRock 1
+    100014: //RootNode
+    100016: Head
+    100018: KneeNormalRock
+    100020: KneeNormalRock 1
+    100022: KneeNormalRock1
+    100024: KneeNormalRock1 1
+    100026: KneeSmallRock
+    100028: KneeSmallRock 1
+    100030: LeftArm
+    100032: LeftElbow
+    100034: LeftFoot
+    100036: LeftForeArm
+    100038: LeftKnee
+    100040: LeftLeg
+    100042: RightArm
+    100044: RightElbow
+    100046: RightFoot
+    100048: RightForeArm
+    100050: RightKnee
+    100052: RightLeg
+    100054: Body
+    100056: Leftenkel
+    100058: Rightenkel
+    400000: Body5
+    400002: ElbowNormalRock
+    400004: ElbowNormalRock 1
+    400006: ElbowNormalRock1
+    400008: ElbowNormalRock1 1
+    400010: ElbowSmallRock
+    400012: ElbowSmallRock 1
+    400014: //RootNode
+    400016: Head
+    400018: KneeNormalRock
+    400020: KneeNormalRock 1
+    400022: KneeNormalRock1
+    400024: KneeNormalRock1 1
+    400026: KneeSmallRock
+    400028: KneeSmallRock 1
+    400030: LeftArm
+    400032: LeftElbow
+    400034: LeftFoot
+    400036: LeftForeArm
+    400038: LeftKnee
+    400040: LeftLeg
+    400042: RightArm
+    400044: RightElbow
+    400046: RightFoot
+    400048: RightForeArm
+    400050: RightKnee
+    400052: RightLeg
+    400054: Body
+    400056: Leftenkel
+    400058: Rightenkel
+    2100000: lambert1
+    2300000: Body5
+    2300002: ElbowNormalRock
+    2300004: ElbowNormalRock 1
+    2300006: ElbowNormalRock1
+    2300008: ElbowNormalRock1 1
+    2300010: ElbowSmallRock
+    2300012: ElbowSmallRock 1
+    2300014: Head
+    2300016: KneeNormalRock
+    2300018: KneeNormalRock 1
+    2300020: KneeNormalRock1
+    2300022: KneeNormalRock1 1
+    2300024: KneeSmallRock
+    2300026: KneeSmallRock 1
+    2300028: LeftArm
+    2300030: LeftElbow
+    2300032: LeftFoot
+    2300034: LeftForeArm
+    2300036: LeftKnee
+    2300038: LeftLeg
+    2300040: RightArm
+    2300042: RightElbow
+    2300044: RightFoot
+    2300046: RightForeArm
+    2300048: RightKnee
+    2300050: RightLeg
+    2300052: Body
+    2300054: Leftenkel
+    2300056: Rightenkel
+    3300000: Body5
+    3300002: ElbowNormalRock
+    3300004: ElbowNormalRock 1
+    3300006: ElbowNormalRock1
+    3300008: ElbowNormalRock1 1
+    3300010: ElbowSmallRock
+    3300012: ElbowSmallRock 1
+    3300014: Head
+    3300016: KneeNormalRock
+    3300018: KneeNormalRock 1
+    3300020: KneeNormalRock1
+    3300022: KneeNormalRock1 1
+    3300024: KneeSmallRock
+    3300026: KneeSmallRock 1
+    3300028: LeftArm
+    3300030: LeftElbow
+    3300032: LeftFoot
+    3300034: LeftForeArm
+    3300036: LeftKnee
+    3300038: LeftLeg
+    3300040: RightArm
+    3300042: RightElbow
+    3300044: RightFoot
+    3300046: RightForeArm
+    3300048: RightKnee
+    3300050: RightLeg
+    3300052: Body
+    3300054: Leftenkel
+    3300056: Rightenkel
+    4300000: RightLeg
+    4300002: RightKnee
+    4300004: RightFoot
+    4300006: KneeSmallRock
+    4300008: KneeNormalRock
+    4300010: KneeNormalRock1
+    4300012: RightArm
+    4300014: RightElbow
+    4300016: RightForeArm
+    4300018: ElbowNormalRock1
+    4300020: ElbowNormalRock
+    4300022: ElbowSmallRock
+    4300024: LeftLeg
+    4300026: LeftKnee
+    4300028: LeftFoot
+    4300030: KneeNormalRock1
+    4300032: KneeNormalRock
+    4300034: KneeSmallRock
+    4300036: LeftArm
+    4300038: LeftElbow
+    4300040: LeftForeArm
+    4300042: ElbowNormalRock1
+    4300044: ElbowNormalRock
+    4300046: ElbowSmallRock
+    4300048: Head
+    4300050: Body5
+    4300052: Body
+    4300054: Rightenkel
+    4300056: Leftenkel
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
