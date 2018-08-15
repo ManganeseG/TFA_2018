@@ -7,6 +7,9 @@ public class KnowTheWayManager : MonoBehaviour
 {
     public bool GenerateRandom;
     public GameObject[] piecesPrefabs;
+    public GameObject WinParticle;
+
+    private Transform origin;
 
     [System.Serializable]
     public class KnowTheWayPuzzle
@@ -17,7 +20,6 @@ public class KnowTheWayManager : MonoBehaviour
         public int width;
         public int height;
         public piece[,] pieces;
-
     }
     public KnowTheWayPuzzle knowTheWayPuzzle;
 
@@ -26,6 +28,9 @@ public class KnowTheWayManager : MonoBehaviour
 
     void Start()
     {
+        WinParticle.SetActive(false);
+        origin = GetComponent<Transform>();
+
         if (GenerateRandom)
         {
             if (knowTheWayPuzzle.width == 0 || knowTheWayPuzzle.height == 0)
@@ -189,7 +194,7 @@ public class KnowTheWayManager : MonoBehaviour
                 if (valueSum == 2 && auxValues[0] != auxValues[2])
                     valueSum = 5;
 
-                GameObject go = (GameObject)Instantiate(piecesPrefabs[valueSum], new Vector3(w, 0, h), Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(piecesPrefabs[valueSum], new Vector3(origin.position.x + w, origin.position.y, origin.position.z+h), Quaternion.identity);
 
                 while (go.GetComponent<piece>().values[0] != auxValues[0] ||
                       go.GetComponent<piece>().values[1] != auxValues[1] ||
@@ -209,7 +214,7 @@ public class KnowTheWayManager : MonoBehaviour
 
     public void Win()
     {
-        //whatToDoIfItsWin
-        Debug.Log("It's a win!");
+        Debug.Log("aa");
+        WinParticle.SetActive(true);
     }
 }

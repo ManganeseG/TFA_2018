@@ -58,8 +58,7 @@ namespace AmplifyShaderEditor
 			}
 			else
 			{
-				m_inputPorts[ 0 ].UpdateInternalData();
-				result = m_opName + "( " + m_inputPorts[ 0 ].GenerateShaderForOutput( ref dataCollector, m_inputPorts[ 0 ].DataType, ignoreLocalvar ) + " )";
+				result = m_opName + "( " + m_inputPorts[ 0 ].GeneratePortInstructions( ref dataCollector ) + " )";
 			}
 
 			return CreateOutputLocalVariable( 0, result, ref dataCollector );
